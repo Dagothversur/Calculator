@@ -63,10 +63,13 @@
             // 
             // Input
             // 
+            this.Input.AcceptsReturn = true;
             this.Input.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Input.Font = new System.Drawing.Font("Liberation Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Input.Location = new System.Drawing.Point(12, 12);
             this.Input.Multiline = true;
             this.Input.Name = "Input";
+            this.Input.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Input.Size = new System.Drawing.Size(200, 38);
             this.Input.TabIndex = 0;
             this.Input.TextChanged += new System.EventHandler(this.textBox1_TextChanged);

@@ -19,7 +19,4 @@ namespace Calculator
             Application.Run(new Calculator());
         }
     }
-
-   
-  
 }

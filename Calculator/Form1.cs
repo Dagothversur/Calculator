@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Calculator.Properties;
 
 namespace Calculator
 {
@@ -20,7 +21,8 @@ namespace Calculator
         {
             InitializeComponent();
             this.CommaClicked = false;
-           
+            this.Input.Text = "0";
+
 
         }
 
@@ -83,7 +85,7 @@ namespace Calculator
 
         private void Info_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Szymon Sutek is an Author of this Calculator!", "Author",
+            MessageBox.Show(Resources.Calculator_Info_Click_Szymon_Sutek_created_this_Calculator_, "Author",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }
