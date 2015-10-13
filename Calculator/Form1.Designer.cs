@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    partial class Form1
+    partial class Calculator
     {
         /// <summary>
         /// Required designer variable.
@@ -19,6 +19,7 @@
             }
             base.Dispose(disposing);
         }
+     
 
         #region Windows Form Designer generated code
 
@@ -26,6 +27,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
         private void InitializeComponent()
         {
             this.Input = new System.Windows.Forms.TextBox();
@@ -61,7 +63,7 @@
             // 
             // Input
             // 
-            this.Input.BackColor = System.Drawing.SystemColors.Control;
+            this.Input.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Input.Location = new System.Drawing.Point(12, 12);
             this.Input.Multiline = true;
             this.Input.Name = "Input";
@@ -138,6 +140,7 @@
             this.b7.TabIndex = 7;
             this.b7.Text = "7";
             this.b7.UseVisualStyleBackColor = true;
+            this.b7.Click += new System.EventHandler(this.NumberClicked);
             // 
             // b4
             // 
@@ -148,6 +151,7 @@
             this.b4.TabIndex = 8;
             this.b4.Text = "4";
             this.b4.UseVisualStyleBackColor = true;
+            this.b4.Click += new System.EventHandler(this.NumberClicked);
             // 
             // b1
             // 
@@ -158,6 +162,7 @@
             this.b1.TabIndex = 9;
             this.b1.Text = "1";
             this.b1.UseVisualStyleBackColor = true;
+            this.b1.Click += new System.EventHandler(this.NumberClicked);
             // 
             // ClearC
             // 
@@ -178,6 +183,7 @@
             this.b8.TabIndex = 11;
             this.b8.Text = "8";
             this.b8.UseVisualStyleBackColor = true;
+            this.b8.Click += new System.EventHandler(this.NumberClicked);
             // 
             // b5
             // 
@@ -188,6 +194,7 @@
             this.b5.TabIndex = 12;
             this.b5.Text = "5";
             this.b5.UseVisualStyleBackColor = true;
+            this.b5.Click += new System.EventHandler(this.NumberClicked);
             // 
             // b2
             // 
@@ -198,6 +205,7 @@
             this.b2.TabIndex = 13;
             this.b2.Text = "2";
             this.b2.UseVisualStyleBackColor = true;
+            this.b2.Click += new System.EventHandler(this.NumberClicked);
             // 
             // Clear
             // 
@@ -208,6 +216,7 @@
             this.Clear.TabIndex = 14;
             this.Clear.Text = "C";
             this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // b9
             // 
@@ -218,6 +227,7 @@
             this.b9.TabIndex = 15;
             this.b9.Text = "9";
             this.b9.UseVisualStyleBackColor = true;
+            this.b9.Click += new System.EventHandler(this.NumberClicked);
             // 
             // b6
             // 
@@ -228,6 +238,7 @@
             this.b6.TabIndex = 16;
             this.b6.Text = "6";
             this.b6.UseVisualStyleBackColor = true;
+            this.b6.Click += new System.EventHandler(this.NumberClicked);
             // 
             // b3
             // 
@@ -238,6 +249,7 @@
             this.b3.TabIndex = 17;
             this.b3.Text = "3";
             this.b3.UseVisualStyleBackColor = true;
+            this.b3.Click += new System.EventHandler(this.NumberClicked);
             // 
             // Info
             // 
@@ -248,6 +260,7 @@
             this.Info.TabIndex = 18;
             this.Info.Text = "Info";
             this.Info.UseVisualStyleBackColor = true;
+            this.Info.Click += new System.EventHandler(this.Info_Click);
             // 
             // Divide
             // 
@@ -339,6 +352,7 @@
             this.Comma.TabIndex = 28;
             this.Comma.Text = ",";
             this.Comma.UseVisualStyleBackColor = true;
+            this.Comma.Click += new System.EventHandler(this.Comma_Click);
             // 
             // b0
             // 
@@ -349,9 +363,9 @@
             this.b0.TabIndex = 29;
             this.b0.Text = "0";
             this.b0.UseVisualStyleBackColor = true;
-            this.b0.Click += new System.EventHandler(this.button29_Click);
+            this.b0.Click += new System.EventHandler(this.NumberClicked);
             // 
-            // Form1
+            // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -385,8 +399,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Input);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Calculator";
+            this.Text = "MyCalculator";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -424,6 +438,7 @@
         private System.Windows.Forms.Button Result;
         private System.Windows.Forms.Button Comma;
         private System.Windows.Forms.Button b0;
+        public bool CommaClicked { set; get; }
     }
 }
 
