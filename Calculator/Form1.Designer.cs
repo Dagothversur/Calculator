@@ -65,6 +65,7 @@
             // 
             this.Input.AcceptsReturn = true;
             this.Input.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Input.Enabled = false;
             this.Input.Font = new System.Drawing.Font("Liberation Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Input.Location = new System.Drawing.Point(12, 12);
             this.Input.Multiline = true;
@@ -72,7 +73,6 @@
             this.Input.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Input.Size = new System.Drawing.Size(200, 38);
             this.Input.TabIndex = 0;
-            this.Input.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -335,6 +335,7 @@
             this.Plus.TabIndex = 26;
             this.Plus.Text = " +";
             this.Plus.UseVisualStyleBackColor = true;
+            this.Plus.Click += new System.EventHandler(this.Plus_Click);
             // 
             // Result
             // 
@@ -345,6 +346,7 @@
             this.Result.TabIndex = 27;
             this.Result.Text = "=";
             this.Result.UseVisualStyleBackColor = true;
+            this.Result.Click += new System.EventHandler(this.Result_Click);
             // 
             // Comma
             // 
@@ -372,7 +374,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(221, 286);
+            this.ClientSize = new System.Drawing.Size(224, 286);
             this.Controls.Add(this.b0);
             this.Controls.Add(this.Comma);
             this.Controls.Add(this.Result);
