@@ -1,6 +1,6 @@
 ﻿namespace Calculator
 {
-    internal static class CalculationManager
+    public static class CalculationManager
     {
         /// <summary>
         ///     Calculation will be made for given operation(

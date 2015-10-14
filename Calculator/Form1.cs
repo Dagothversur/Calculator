@@ -10,28 +10,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Calculator.Properties;
+using OperationInformation;
+
 
 namespace Calculator
 {
     public partial class Calculator : Form
     {
-
+        private readonly Information _info;
          
 
         public Calculator()
         {
             InitializeComponent();
+            _info = new Information();
             InitializeVariables();
-            this.CommaClicked = false;
-            this.Input.Text = "0";
+      
         }
 
         private void InitializeVariables()
         {
             ResetVariables();
-            this.NumberOne = 0;
-            this.NumberTwo = 0;
-            this.Operation = 0;
+            _info.FirstNumber = 0;
+            _info.SecondNumber = 0;
+            _info.Operation = 0;
         }
 
         private void ResetVariables()
@@ -50,20 +52,6 @@ namespace Calculator
         {
 
         }
-
-
- 
-
-
-        //This method is invoked when (0-9) numbers are clicked
-
-        private float NumberOne { get; set; }
-        private float NumberTwo { get; set; }
-        private int Operation { get; set; }
-
-      
-
-
 
         private static void SetInput(string msg, Action<string> func )
         {
@@ -107,14 +95,14 @@ namespace Calculator
 
         private void Result_Click(object sender, EventArgs e)
         {
-            NumberTwo = float.Parse(this.Input.Text, CultureInfo.InvariantCulture.NumberFormat);
-            SetInput( CalculationManager.Calculate(NumberOne, NumberTwo, (Operations) Operation),(x) => this.Input.Text = x ); 
+            _info.SecondNumber = float.Parse(this.Input.Text, CultureInfo.InvariantCulture.NumberFormat);
+            SetInput( CalculationManager.Calculate(_info.FirstNumber, _info.SecondNumber, (Operations) _info.Operation),(x) => this.Input.Text = x ); 
         }
 
         private void Plus_Click(object sender, EventArgs e)
         {
-            Operation = 1;
-            NumberOne = float.Parse(this.Input.Text, CultureInfo.InvariantCulture.NumberFormat);
+            _info.Operation = 1;
+            _info.FirstNumber = float.Parse(this.Input.Text, CultureInfo.InvariantCulture.NumberFormat);
             ResetVariables();
 
         }
