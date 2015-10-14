@@ -274,6 +274,7 @@
             this.Divide.TabIndex = 19;
             this.Divide.Text = "/";
             this.Divide.UseVisualStyleBackColor = true;
+            this.Divide.Click += new System.EventHandler(this.Divide_Click);
             // 
             // Multiply
             // 

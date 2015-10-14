@@ -1,25 +1,39 @@
-﻿namespace Calculator
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
+
+namespace OperationInformation
 {
-    public static class CalculationManager
+    public class CalculationManager
     {
         /// <summary>
         ///     Calculation will be made for given operation(
         /// </summary>
-        public static string Calculate(float x, float y, Operations operation)
+        public delegate string CalculationHandler(float x, float y);
+
+        public static CalculationHandler GetOperation(Operations op)
         {
-            switch (operation)
+            switch (op)
             {
                 case Operations.Addition:
-                    return Calculations.Addition(x, y);
-                case Operations.Substraction:
-                    return Calculations.Substraction(x, y);
-                case Operations.Multiplication:
-                    return Calculations.Multiplication(x, y);
+                    return (x, y) => x + y + "";
                 case Operations.Division:
-                    return Calculations.Division(x, y);
-            }
+                    return (x, y) =>
+                    {
+                        if (x.Equals(0))
+                            return "U cant divide by zero!";
 
-            return "";
+                        return x/y + "";
+                    };
+                case Operations.Multiplication:
+                    return (x, y) => x*y + "";
+                case Operations.Substraction:
+                    return (x, y) => x - y + "";
+                case Operations.Sqrt:
+                    return (x, y) => Math.Sqrt(x) + "";
+                case Operations.Mod:
+                    return (x, y) => x%y + "";
+            }
+            return null;
         }
     }
 }

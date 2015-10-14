@@ -15,16 +15,19 @@ using OperationInformation;
 
 namespace Calculator
 {
+
     public partial class Calculator : Form
     {
         private readonly Information _info;
-         
+
+        private delegate string Operation(float x, float y);
 
         public Calculator()
         {
             InitializeComponent();
             _info = new Information();
             InitializeVariables();
+
       
         }
 
@@ -96,15 +99,23 @@ namespace Calculator
         private void Result_Click(object sender, EventArgs e)
         {
             _info.SecondNumber = float.Parse(this.Input.Text, CultureInfo.InvariantCulture.NumberFormat);
-            SetInput( CalculationManager.Calculate(_info.FirstNumber, _info.SecondNumber, (Operations) _info.Operation),(x) => this.Input.Text = x ); 
+            var doOperation = new Operation(CalculationManager.GetOperation(_info.Operation));
+            SetInput(doOperation(_info.FirstNumber, _info.SecondNumber),(x) => this.Input.Text = x ); 
         }
 
         private void Plus_Click(object sender, EventArgs e)
         {
-            _info.Operation = 1;
+            _info.Operation = Operations.Addition;
             _info.FirstNumber = float.Parse(this.Input.Text, CultureInfo.InvariantCulture.NumberFormat);
             ResetVariables();
 
+        }
+
+        private void Divide_Click(object sender, EventArgs e)
+        {
+            _info.Operation = Operations.Division;
+            _info.FirstNumber = float.Parse(this.Input.Text, CultureInfo.InvariantCulture.NumberFormat);
+            ResetVariables();
         }
     }
 
