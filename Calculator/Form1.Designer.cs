@@ -54,7 +54,7 @@
             this.Minus = new System.Windows.Forms.Button();
             this.Sqrt = new System.Windows.Forms.Button();
             this.Mod = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
+            this.Reciprocal = new System.Windows.Forms.Button();
             this.Plus = new System.Windows.Forms.Button();
             this.Result = new System.Windows.Forms.Button();
             this.Comma = new System.Windows.Forms.Button();
@@ -274,7 +274,7 @@
             this.Divide.TabIndex = 19;
             this.Divide.Text = "/";
             this.Divide.UseVisualStyleBackColor = true;
-            this.Divide.Click += new System.EventHandler(this.Divide_Click);
+            this.Divide.Click += new System.EventHandler(this.Operate);
             // 
             // Multiply
             // 
@@ -285,7 +285,7 @@
             this.Multiply.TabIndex = 20;
             this.Multiply.Text = "*";
             this.Multiply.UseVisualStyleBackColor = true;
-            this.Multiply.Click += new System.EventHandler(this.button20_Click);
+            this.Multiply.Click += new System.EventHandler(this.Operate);
             // 
             // Minus
             // 
@@ -296,6 +296,7 @@
             this.Minus.TabIndex = 21;
             this.Minus.Text = "-";
             this.Minus.UseVisualStyleBackColor = true;
+            this.Minus.Click += new System.EventHandler(this.Operate);
             // 
             // Sqrt
             // 
@@ -306,6 +307,7 @@
             this.Sqrt.TabIndex = 22;
             this.Sqrt.Text = "sqrt";
             this.Sqrt.UseVisualStyleBackColor = true;
+            this.Sqrt.Click += new System.EventHandler(this.Operate);
             // 
             // Mod
             // 
@@ -316,16 +318,18 @@
             this.Mod.TabIndex = 23;
             this.Mod.Text = "%";
             this.Mod.UseVisualStyleBackColor = true;
+            this.Mod.Click += new System.EventHandler(this.Operate);
             // 
-            // button24
+            // Reciprocal
             // 
-            this.button24.Location = new System.Drawing.Point(175, 156);
-            this.button24.Margin = new System.Windows.Forms.Padding(2);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(37, 29);
-            this.button24.TabIndex = 24;
-            this.button24.Text = "1/x";
-            this.button24.UseVisualStyleBackColor = true;
+            this.Reciprocal.Location = new System.Drawing.Point(175, 156);
+            this.Reciprocal.Margin = new System.Windows.Forms.Padding(2);
+            this.Reciprocal.Name = "Reciprocal";
+            this.Reciprocal.Size = new System.Drawing.Size(37, 29);
+            this.Reciprocal.TabIndex = 24;
+            this.Reciprocal.Text = "1/x";
+            this.Reciprocal.UseVisualStyleBackColor = true;
+            this.Reciprocal.Click += new System.EventHandler(this.Operate);
             // 
             // Plus
             // 
@@ -336,7 +340,7 @@
             this.Plus.TabIndex = 26;
             this.Plus.Text = " +";
             this.Plus.UseVisualStyleBackColor = true;
-            this.Plus.Click += new System.EventHandler(this.Plus_Click);
+            this.Plus.Click += new System.EventHandler(this.Operate);
             // 
             // Result
             // 
@@ -380,7 +384,7 @@
             this.Controls.Add(this.Comma);
             this.Controls.Add(this.Result);
             this.Controls.Add(this.Plus);
-            this.Controls.Add(this.button24);
+            this.Controls.Add(this.Reciprocal);
             this.Controls.Add(this.Mod);
             this.Controls.Add(this.Sqrt);
             this.Controls.Add(this.Minus);
@@ -439,7 +443,7 @@
         private System.Windows.Forms.Button Minus;
         private System.Windows.Forms.Button Sqrt;
         private System.Windows.Forms.Button Mod;
-        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button Reciprocal;
         private System.Windows.Forms.Button Plus;
         private System.Windows.Forms.Button Result;
         private System.Windows.Forms.Button Comma;
