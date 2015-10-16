@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 
 namespace OperationInformation
 {
@@ -19,8 +18,8 @@ namespace OperationInformation
                 case Operations.Division:
                     return (x, y) =>
                     {
-                        if (x.Equals(0))
-                            return "U cant divide by zero!";
+                        if (y.Equals(0))
+                            return " Cannot divide by zero";
 
                         return x/y + "";
                     };
@@ -32,6 +31,13 @@ namespace OperationInformation
                     return (x, y) => Math.Sqrt(x) + "";
                 case Operations.Mod:
                     return (x, y) => x%y + "";
+                case Operations.Reciprocal:
+                    return (x, y) =>
+                    {
+                        if (x.Equals(0))
+                            return " Cannot divide by zero";
+                        return 1/x + "";
+                    };
             }
             return null;
         }

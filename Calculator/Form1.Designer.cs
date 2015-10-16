@@ -133,6 +133,7 @@
             this.Back.TabIndex = 6;
             this.Back.Text = "<-";
             this.Back.UseVisualStyleBackColor = true;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // b7
             // 

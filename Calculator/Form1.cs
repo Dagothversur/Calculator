@@ -81,36 +81,69 @@ namespace Calculator
 
         private void Result_Click(object sender, EventArgs e)
         {
-            _info.SecondNumber = float.Parse(Input.Text, CultureInfo.InvariantCulture.NumberFormat);
+            if(_info.Operation != Operations.Sqrt && _info.Operation != Operations.Reciprocal)
+                 _info.SecondNumber = float.Parse(Input.Text, CultureInfo.InvariantCulture.NumberFormat);
             var doOperation = new Operation(CalculationManager.GetOperation(_info.Operation));
             SetInput(doOperation(_info.FirstNumber, _info.SecondNumber), x => Input.Text = x);
         }
 
         private void Operate(object sender, EventArgs e)
         {
+            if(GotInput())
+             _info.FirstNumber = float.Parse(Input.Text, CultureInfo.InvariantCulture.NumberFormat);
             _info.Operation = Identify(sender);
-            _info.FirstNumber = float.Parse(Input.Text, CultureInfo.InvariantCulture.NumberFormat);
-            ResetVariables();
+            if(HandleException(_info.Operation) !=true)
+             ResetVariables();
         }
 
         private Operations Identify(object sender)
         {
             if (sender == Plus)
                 return Operations.Addition;
-            else if (sender == Minus)
+            if (sender == Minus)
                 return Operations.Substraction;
-            else if (sender == Divide)
+            if (sender == Divide)
                 return Operations.Division;
-            else if (sender == Multiply)
+            if (sender == Multiply)
                 return Operations.Multiplication;
-            else if (sender == Mod)
+            if (sender == Mod)
                 return Operations.Mod;
-            else if (sender == Sqrt)
+            if (sender == Sqrt) 
                 return Operations.Sqrt;
-            else if (sender == Reciprocal)
+            if (sender == Reciprocal)
                 return Operations.Reciprocal;
 
             return Operations.Default;
+        }
+
+        private bool HandleException(Operations op)
+        {
+            if (op.Equals(Operations.Sqrt) || op.Equals(Operations.Reciprocal))
+            {
+                Result_Click(this.Result, System.EventArgs.Empty);
+                return true;
+            }
+           
+
+            return false;
+
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            string input = this.Input.Text;
+            if (input.Length > 0)
+                input = input.Substring(0, this.Input.Text.Length - 1);
+            else
+                input = "";
+           this.Input.Text = input;
+
+        }
+
+
+        private bool GotInput()
+        {
+            return !this.Input.Text.Equals(string.Empty);
         }
     }
 }
