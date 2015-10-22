@@ -1,5 +1,7 @@
 ﻿using System;
 
+
+
 namespace OperationInformation
 {
     public class CalculationManager
